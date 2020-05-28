@@ -1,0 +1,66 @@
+
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="over" [fixedInViewport]="true" opened mode="side">
+    <mat-accordion>
+      <a mat-button style="text-align: center">
+        <mat-icon [routerLink]="['/home']">Home</mat-icon>
+      </a>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Auto Salon - Aplikacija
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-button [routerLink]="['/automobil']">Automobili</a>
+        </mat-nav-list>
+        <mat-nav-list>
+          <a mat-button [routerLink]="['/servis']">Servisi</a>
+        </mat-nav-list>
+        <mat-nav-list>
+          <a mat-button [routerLink]="['/dodatnizahtev']">Dodatni zahtevi</a>
+        </mat-nav-list>
+        <mat-nav-list>
+          <a mat-button [routerLink]="['/model']">Modeli</a>
+        </mat-nav-list>
+        <mat-nav-list>
+          <a mat-button [routerLink]="['/kupac']">Kupci</a>
+        </mat-nav-list>
+        <mat-nav-list>
+          <a mat-button [routerLink]="['/prodavac']">Prodavci</a>
+        </mat-nav-list>
+        <mat-nav-list>
+          <a mat-button [routerLink]="['/polisaosiguranja']">Polise Osiguranja</a>
+        </mat-nav-list>
+        <mat-nav-list>
+          <a mat-button [routerLink]="['/marka']">Marke</a>
+        </mat-nav-list>
+        <mat-nav-list>
+          <a mat-button [routerLink]="['/tipautomobila']">Tipovi automobila</a>
+        </mat-nav-list>
+        <mat-nav-list>
+          <a mat-button [routerLink]="['/osiguravajucakuca']">Osiguravajuce kuce</a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Informacije
+          </mat-panel-title>
+          <mat-panel-description>
+            Osnovne informacije o aplikaciji
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-button [routerLink]="['/about']">Pomoć</a>
+        </mat-nav-list>
+        <mat-nav-list>
+          <a mat-button [routerLink]="['/author']">Autor</a>
+        </mat-nav-list>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-sidenav>
+  <router-outlet></router-outlet>
+</mat-sidenav-container>
