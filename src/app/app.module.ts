@@ -44,6 +44,10 @@ import { ModelDialogComponent } from './components/dialogs/model-dialog/model-di
 import { TipAutomobilaComponent } from './components/tipautomobila/tipautomobila.component';
 import { TipAutomobilaService } from './services/tipautomobila.services';
 import { TipAutomobilaDialogComponent } from './components/dialogs/tipautomobila-dialog/tipautomobila-dialog.component';
+import { OsiguravajucaKucaComponent } from './components/osiguravajucakuca/osiguravajucakuca.component';
+import { OsiguravajucaKucaService } from './services/osiguravajucakuca.services';
+import { OsiguravajucaKucaDialogComponent } from './components/dialogs/osiguravajucakuca-dialog/osiguravajucakuca-dialog.component';
+
 
 
 const Routes = [
@@ -55,6 +59,7 @@ const Routes = [
   {path: 'author', component: AuthorComponent},
   {path: 'servis', component: ServisComponent},
   {path: 'model', component: ModelComponent},
+  {path: 'osiguravajucakuca', component: OsiguravajucaKucaComponent},
   {path: 'tipautomobila', component: TipAutomobilaComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 ];
@@ -71,7 +76,9 @@ const Routes = [
     ModelComponent,
     ModelDialogComponent,
     TipAutomobilaComponent,
-    TipAutomobilaDialogComponent
+    TipAutomobilaDialogComponent,
+    OsiguravajucaKucaComponent,
+    OsiguravajucaKucaDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -104,9 +111,9 @@ const Routes = [
     RouterModule.forRoot(Routes)
   ],
   entryComponents: [
-     ServisDialogComponent, ModelDialogComponent, TipAutomobilaDialogComponent
+     ServisDialogComponent, ModelDialogComponent, TipAutomobilaDialogComponent, OsiguravajucaKucaDialogComponent
   ],
-  providers: [ServisService, ModelService, TipAutomobilaService],
+  providers: [ServisService, ModelService, TipAutomobilaService, OsiguravajucaKucaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

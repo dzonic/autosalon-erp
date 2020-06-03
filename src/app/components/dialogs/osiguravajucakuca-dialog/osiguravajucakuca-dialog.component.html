@@ -1,0 +1,19 @@
+<div class="container">
+  <h3 mat-dialog-title *ngIf="flag == 1">Dodavanje osiguravajuće kuće</h3>
+  <h3 mat-dialog-title *ngIf="flag == 2">Modifikacija osiguravajuće kuće: {{data.nazivOsiguravajuceKuce}}</h3>
+  <h3 mat-dialog-title *ngIf="flag == 3">Brisanje osiguravajuće kuće: {{data.nazivOsiguravajuceKuce}}</h3>
+  <form class="mat-dialog-content" #formControl="ngForm">
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Naziv Osiguravajuce Kuce" [(ngModel)]="data.nazivOsiguravajuceKuce" name="nazivOsiguravajuceKuce" [disabled]="flag == 3" required>
+      </mat-form-field>
+    </div>
+
+      <div mat-dialog-actions>
+      <button mat-button *ngIf="flag == 1" type="submit" [mat-dialog-close]="1" (click)="add()" [disabled]="!formControl.valid">Sačuvaj</button>
+      <button mat-button *ngIf="flag == 2" type="submit" [mat-dialog-close]="1" (click)="update()" [disabled]="!formControl.valid">Sačuvaj</button>
+      <button mat-button *ngIf="flag == 3" type="submit" [mat-dialog-close]="1" (click)="delete()">Obriši</button>
+      <button mat-button (click)="cancel()">Poništi</button>
+    </div>
+  </form>
+</div>

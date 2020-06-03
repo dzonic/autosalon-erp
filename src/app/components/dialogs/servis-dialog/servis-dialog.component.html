@@ -11,17 +11,17 @@
 
     <div class="form">
       <mat-form-field>
-        <input matInput placeholder="Opis" [(ngModel)]="data.opis" name="opis" [disabled]="flag == 3">
+        <input matInput placeholder="Opis" [(ngModel)]="data.opis" name="opis" [disabled]="flag == 3" required>
       </mat-form-field>
     </div>
     <div class="form">
       <mat-form-field>
-        <input matInput placeholder="Cena servisa" [(ngModel)]="data.cenaServisa" name="cenaServisa" [disabled]="flag == 3">
+        <input matInput placeholder="Cena servisa" [(ngModel)]="data.cenaServisa" name="cenaServisa" [disabled]="flag == 3" required>
       </mat-form-field>
     </div>
     <div class="form">
       <mat-form-field>
-        <input matInput placeholder="Aktuelan - Unesite 0 ili 1" [(ngModel)]="data.aktuelan" name="aktuelan" [disabled]="flag == 3">
+        <input matInput placeholder="Aktuelan - Unesite 0 ili 1" [(ngModel)]="data.aktuelan" name="aktuelan" [disabled]="flag == 3" required>
       </mat-form-field>
     </div>
     <div mat-dialog-actions>
