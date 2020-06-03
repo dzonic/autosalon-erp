@@ -10,7 +10,8 @@ import { error } from '@angular/compiler/src/util';
 export class ServisService {
 
   private readonly API_URL = 'http://localhost:8081/api/servis';
-  //private readonly API_URL_BYID = 'http://localhost:8081/api/servis/servisID';
+  private readonly API_URL_ID = 'http://localhost:8081/api/servis/servisID';
+  private readonly API_URL_ID_W = 'http://localhost:8081/api/servis/';
 
   dataChange: BehaviorSubject<Servis[]> = new BehaviorSubject<Servis[]>([]);
   constructor(private httpClient: HttpClient) { }
@@ -31,11 +32,11 @@ export class ServisService {
   }
 
   public updateServis(servis: Servis): void {
-    this.httpClient.put(this.API_URL, servis).subscribe();
+    this.httpClient.put(this.API_URL_ID, servis).subscribe();
   }
 
   public deleteServis(servisID: number): void {
-    console.log(this.API_URL);
-    this.httpClient.delete(this.API_URL + '/' + servisID ).subscribe();
+    console.log(this.API_URL_ID_W + servisID);
+    this.httpClient.delete(this.API_URL_ID_W + servisID ).subscribe();
   }
 }

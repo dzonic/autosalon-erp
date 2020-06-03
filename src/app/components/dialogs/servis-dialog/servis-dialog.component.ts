@@ -4,7 +4,7 @@ import { ServisService } from '../../../services/servis.services';
 import { Servis } from '../../../models/servis';
 
 @Component({
-  selector: 'app-liga-dialog',
+  selector: 'app-servis-dialog',
   templateUrl: './servis-dialog.component.html',
   styleUrls: ['./servis-dialog.component.css']
 })
@@ -27,7 +27,7 @@ export class ServisDialogComponent implements OnInit {
   public add(): void {
     this.data.servisID = -1;
     this.servisService.addServis(this.data);
-    this.snackBar.open('Uspešno dodat servis: ' + this.data.servisID, 'U redu', {
+    this.snackBar.open('Uspešno dodat servis: ' + this.data.opis, 'U redu', {
     duration: 2500,
     });
   }

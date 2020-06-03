@@ -1,26 +1,26 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Model } from '../../models/model';
+import { TipAutomobila } from '../../models/tip_automobila';
 import { HttpClient } from '@angular/common/http';
-import { ModelService } from '../../services/model.services';
+import { TipAutomobilaService } from '../../services/tipautomobila.services';
 import {
   MatDialog,
   MatTableDataSource,
   MatPaginator,
   MatSort
 } from '@angular/material';
-import { ModelDialogComponent } from '../dialogs/model-dialog/model-dialog.component';
+import { TipAutomobilaDialogComponent } from '../dialogs/tipautomobila-dialog/tipautomobila-dialog.component';
 import { error } from 'util';
 
 @Component({
-  selector: 'app-model',
-  templateUrl: './model.component.html',
-  styleUrls: ['./model.component.css']
+  selector: 'app-tipautomobila',
+  templateUrl: './tipautomobila.component.html',
+  styleUrls: ['./tipautomobila.component.css']
 })
-export class ModelComponent implements OnInit {
-  displayedColumns = ['modelID', 'nazivModela', 'actions'];
+export class TipAutomobilaComponent implements OnInit {
+  displayedColumns = ['tipAutomobilaID', 'nazivTipaAutomobila', 'actions'];
   // dataSource: Observable<Liga[]>;
-  dataSource: MatTableDataSource<Model>;
+  dataSource: MatTableDataSource<TipAutomobila>;
   @ViewChild(MatSort, { static: true })
   sort: MatSort;
   @ViewChild(MatPaginator, { static: true })
@@ -29,17 +29,17 @@ export class ModelComponent implements OnInit {
   constructor(
     public httpClient: HttpClient,
     public dialog: MatDialog,
-    public modelService: ModelService
+    public modelService: TipAutomobilaService
   ) {}
 
   public loadData() {
-    this.modelService.getAllModel().subscribe(data => {
+    this.modelService.getAllTipAutomobila().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
 
       // tslint:disable-next-line:no-shadowed-variable
       this.dataSource.sortingDataAccessor = (data, property) => {
         switch (property) {
-          case 'modelID':
+          case 'tipAutomobilaID':
             return data[property];
           default:
             return data[property].toLocaleLowerCase();
@@ -58,10 +58,10 @@ export class ModelComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
     this.dataSource.filter = filterValue;
   }
-  public openDialog(flag: number, modelID: number, nazivModela: string) {
-    const dialogRef = this.dialog.open(ModelDialogComponent, {
+  public openDialog(flag: number, tipAutomobilaID: number, nazivTipaAutomobila: string) {
+    const dialogRef = this.dialog.open(TipAutomobilaDialogComponent, {
       // tslint:disable-next-line:object-literal-shorthand
-      data: { modelID: modelID, nazivModela: nazivModela }
+      data: { tipAutomobilaID: tipAutomobilaID, nazivTipaAutomobila: nazivTipaAutomobila }
     });
     dialogRef.componentInstance.flag = flag;
     dialogRef.afterClosed().subscribe(result => {

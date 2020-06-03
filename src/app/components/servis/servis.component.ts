@@ -6,7 +6,7 @@ import { MatDialog, MatTableDataSource, MatPaginator, MatSort } from '@angular/m
 import { ServisDialogComponent } from '../dialogs/servis-dialog/servis-dialog.component';
 
 @Component({
-  selector: 'app-liga',
+  selector: 'app-servis',
   templateUrl: './servis.component.html',
   styleUrls: ['./servis.component.css']
 })

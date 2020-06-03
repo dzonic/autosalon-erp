@@ -10,6 +10,8 @@ import { error } from '@angular/compiler/src/util';
 export class ModelService {
 
   private readonly API_URL = 'http://localhost:8081/api/model';
+  private readonly API_URL_ID = 'http://localhost:8081/api/model/modelID';
+  private readonly API_URL_ID_W = 'http://localhost:8081/api/model/';
 
   dataChange: BehaviorSubject<Model[]> = new BehaviorSubject<Model[]>([]);
   constructor(private httpClient: HttpClient) { }
@@ -29,12 +31,12 @@ export class ModelService {
   }
 
   public updateModel(model: Model): void {
-    this.httpClient.put(this.API_URL, model).subscribe();
+    this.httpClient.put(this.API_URL_ID, model).subscribe();
   }
 
-  public deleteModel(id: number): void {
-    console.log(this.API_URL + id);
-    this.httpClient.delete(this.API_URL + id).subscribe();
+  public deleteModel(modelID: number): void {
+    console.log(this.API_URL_ID_W + modelID);
+    this.httpClient.delete(this.API_URL_ID_W + modelID).subscribe();
   }
 
 }

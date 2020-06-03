@@ -1,11 +1,11 @@
 <div class="container">
-  <h3 mat-dialog-title *ngIf="flag == 1">Dodavanje modela automobila</h3>
-  <h3 mat-dialog-title *ngIf="flag == 2">Modifikacija modela: {{data.nazivModela}}</h3>
-  <h3 mat-dialog-title *ngIf="flag == 3">Brisanje modela: {{data.nazivModela}}</h3>
+  <h3 mat-dialog-title *ngIf="flag == 1">Dodavanje tipa automobila</h3>
+  <h3 mat-dialog-title *ngIf="flag == 2">Modifikacija tipa automobila: {{data.nazivTipaAutomobila}}</h3>
+  <h3 mat-dialog-title *ngIf="flag == 3">Brisanje tipa automobila: {{data.nazivTipaAutomobila}}</h3>
   <form class="mat-dialog-content" #formControl="ngForm">
     <div class="form">
       <mat-form-field>
-        <input matInput placeholder="Naziv Modela" [(ngModel)]="data.nazivModela" name="nazivModela" [disabled]="flag == 3" required>
+        <input matInput placeholder="Naziv Tipa Automobila" [(ngModel)]="data.nazivTipaAutomobila" name="nazivTipaAutomobila" [disabled]="flag == 3" required>
       </mat-form-field>
     </div>
 

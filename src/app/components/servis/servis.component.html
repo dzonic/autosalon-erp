@@ -15,7 +15,7 @@
 
     <ng-container matColumnDef="datumServisiranja">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Datum servisiranja</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.datumServisiranja | date : "dd.MM.yyyy."}}</mat-cell>
+      <mat-cell *matCellDef="let row"> {{row.datumServisiranja | date : "yyyy-MM-dd"}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="opis">

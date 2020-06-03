@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <span class="title-center">Modeli automobila</span>
+  <span class="title-center">Tipovi automobila</span>
 </mat-toolbar>
 
 <div class="container mat-elevation-z8">
@@ -10,14 +10,14 @@
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
     <!-- ID Column -->
-    <ng-container matColumnDef="modelID">
+    <ng-container matColumnDef="tipAutomobilaID">
       <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{row.modelID}}</mat-cell>
+      <mat-cell *matCellDef="let row">{{row.tipAutomobilaID}}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="nazivModela">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Model</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.nazivModela}}</mat-cell>
+    <ng-container matColumnDef="nazivTipaAutomobila">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Naziv tipa automobila</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.nazivTipaAutomobila}}</mat-cell>
     </ng-container>
 
     <!-- actions -->
@@ -29,10 +29,10 @@
       </mat-header-cell>
 
       <mat-cell *matCellDef="let row; let i=index;">
-        <button mat-icon-button color="primary" (click)="openDialog(2,row.modelID, row.nazivModela)">
+        <button mat-icon-button color="primary" (click)="openDialog(2,row.tipAutomobilaID, row.nazivTipaAutomobila)">
           <mat-icon aria-label="Edit">edit</mat-icon>
         </button>
-        <button mat-icon-button color="primary" (click)="openDialog(3,row.modelID, row.nazivModela)">
+        <button mat-icon-button color="primary" (click)="openDialog(3,row.tipAutomobilaID, row.nazivTipaAutomobila)">
           <mat-icon aria-label="Delete">delete</mat-icon>
         </button>
       </mat-cell>

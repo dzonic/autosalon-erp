@@ -1,0 +1,10 @@
+.mat-form-field {
+  font-size: 14px;
+  flex-grow: 1;
+  margin-top: 8px;
+  align-content: space-between;
+ }
+
+ .form {
+  display: flex;
+ }
