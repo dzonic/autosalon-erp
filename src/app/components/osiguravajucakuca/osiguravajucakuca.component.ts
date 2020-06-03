@@ -18,7 +18,6 @@ import { OsiguravajucaKucaDialogComponent } from '../dialogs/osiguravajucakuca-d
 })
 export class OsiguravajucaKucaComponent implements OnInit {
   displayedColumns = ['osiguravajucaKucaID', 'nazivOsiguravajuceKuce', 'actions'];
-  // dataSource: Observable<Liga[]>;
   dataSource: MatTableDataSource<OsiguravajucaKuca>;
   @ViewChild(MatSort, { static: true })
   sort: MatSort;
