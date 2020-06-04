@@ -3,12 +3,14 @@ import { MatDialogRef, MatSnackBar, MAT_DIALOG_DATA } from '@angular/material';
 import { ServisService } from '../../../services/servis.services';
 import { Servis } from '../../../models/servis';
 
+
 @Component({
   selector: 'app-servis-dialog',
   templateUrl: './servis-dialog.component.html',
   styleUrls: ['./servis-dialog.component.css']
 })
 export class ServisDialogComponent implements OnInit {
+
 
   flag: number;
   constructor(public snackBar: MatSnackBar,

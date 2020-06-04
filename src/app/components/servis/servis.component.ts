@@ -26,6 +26,10 @@ export class ServisComponent implements OnInit {
         switch (property) {
           case 'servisID':
             return data[property];
+          case 'cenaServisa':
+            return data[property];
+          case 'aktuelan' :
+            return data[property];
           default:
             return data[property].toLocaleLowerCase();
 

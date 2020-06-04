@@ -28,6 +28,7 @@ export class TipAutomobilaService {
   }
   // tslint:disable-next-line:variable-name
   public addTipAutomobila(tip_automobila: TipAutomobila): void {
+    console.log(this.API_URL, tip_automobila);
     this.httpClient.post(this.API_URL, tip_automobila).subscribe();
   }
 

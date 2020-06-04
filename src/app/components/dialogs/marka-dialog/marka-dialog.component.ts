@@ -52,7 +52,7 @@ export class MarkaDialogComponent implements OnInit {
 
   public delete(): void {
     this.markaService.deleteMarka(this.data.markaID);
-    this.snackBar.open('Uspešno obrisana marka\s: ' + this.data.markaID, 'U redu', {
+    this.snackBar.open('Uspešno obrisana marka: ' + this.data.markaID, 'U redu', {
       duration: 2500,
       });
   }

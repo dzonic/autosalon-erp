@@ -3,9 +3,10 @@
   <h3 mat-dialog-title *ngIf="flag == 2">Modifikacija servisa: {{data.servisID}}</h3>
   <h3 mat-dialog-title *ngIf="flag == 3">Brisanje servisa: {{data.servisID}</h3>
   <form class="mat-dialog-content" #formControl="ngForm">
+
     <div class="form">
       <mat-form-field>
-        <input matInput placeholder="Datum Servisiranja" [(ngModel)]="data.datumServisiranja" name="datumServisiranja" [disabled]="flag == 3" required>
+        <input matInput placeholder="Datum servisiranja - format datuma [yyy-MM-dd]" [(ngModel)]="data.datumServisiranja" name="datumServisiranja" [disabled]="flag == 3" required>
       </mat-form-field>
     </div>
 
@@ -16,14 +17,23 @@
     </div>
     <div class="form">
       <mat-form-field>
-        <input matInput placeholder="Cena servisa" [(ngModel)]="data.cenaServisa" name="cenaServisa" [disabled]="flag == 3" required>
+        <input matInput placeholder="Cena servisa" [(ngModel)]="data.cenaServisa" name="cenaServisa" type="number" [disabled]="flag == 3" required>
       </mat-form-field>
     </div>
+
     <div class="form">
       <mat-form-field>
-        <input matInput placeholder="Aktuelan - Unesite 0 ili 1" [(ngModel)]="data.aktuelan" name="aktuelan" [disabled]="flag == 3" required>
+        <input matInput placeholder="Aktuelan - Kliknite na željeni radio button" [(ngModel)]="data.aktuelan" name="aktuelan"
+       [disabled]="flag == 3">
       </mat-form-field>
     </div>
+
+    <div class= "form">
+      <input type="radio" name="aktuelan" [(ngModel)]="data.aktuelan" [value]="false" [disabled]="flag == 3">
+      <input type="radio" name="aktuelan" [(ngModel)]="data.aktuelan" [value]="true" [disabled]="flag == 3">
+    </div>
+
+
     <div mat-dialog-actions>
       <button mat-button *ngIf="flag == 1"  type = "submit" [mat-dialog-close]="1" (click)="add()" [disabled]="!formControl.valid">Sačuvaj</button>
       <button mat-button *ngIf="flag == 2" type= "submit" [mat-dialog-close]="1" (click)="update()" [disabled]="!formControl.valid">Sačuvaj</button>

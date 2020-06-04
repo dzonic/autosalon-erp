@@ -4,13 +4,12 @@
     <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="formGroup"
     (ngSubmit)="loginProces()">
      <mat-form-field>
-       <input matInput placeholder="Unesite korisnicko ime" formControlName="email">
+       <input matInput placeholder="Unesite korisničko ime" formControlName="email">
      </mat-form-field>
 
      <mat-form-field>
       <input matInput type="password" placeholder="Unesite lozinku" formControlName="password">
     </mat-form-field>
-
 
 
     <button mat-raised-button type="submit" class="mt-15" color="primary">Login</button>

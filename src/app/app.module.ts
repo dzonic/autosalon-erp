@@ -21,6 +21,7 @@ import {MatButtonModule,
   MatDatepickerModule,
   MatCheckboxModule,
   MatPaginatorModule,
+  MatRadioModule,
   MatSortModule
 } from '@angular/material';
 
@@ -112,6 +113,7 @@ const Routes = [
     MatNativeDateModule,
     MatSortModule,
     FormsModule,
+    MatRadioModule,
     MatCardModule,
     ReactiveFormsModule,
     RouterModule.forRoot(Routes)

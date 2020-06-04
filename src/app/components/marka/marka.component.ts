@@ -46,8 +46,10 @@ export class MarkaComponent implements OnInit {
       // tslint:disable-next-line:no-shadowed-variable
       this.dataSource.sortingDataAccessor = (data, property) => {
         switch (property) {
-          case 'model': return data.modelID.modelID.toString().toLocaleLowerCase();
-          default: return data[property];
+          case 'model':
+             return data.modelID.modelID.toString().toLocaleLowerCase();
+          default:
+          return data[property];
         }
       };
 

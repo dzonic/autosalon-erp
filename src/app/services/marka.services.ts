@@ -27,6 +27,7 @@ export class MarkaService {
   }
 
   public addMarka(marka: Marka): void {
+    console.log(this.API_URL, marka);
     this.httpClient.post(this.API_URL, marka).subscribe();
   }
 

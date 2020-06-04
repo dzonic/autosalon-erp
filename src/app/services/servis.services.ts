@@ -28,6 +28,7 @@ export class ServisService {
   }
 
   public addServis(servis: Servis): void {
+    console.log(this.API_URL, servis);
     this.httpClient.post(this.API_URL, servis).subscribe();
   }
 
