@@ -1,0 +1,67 @@
+import { Component, OnInit, Inject } from '@angular/core';
+import { PoliseOsiguranja } from '../../../models/polise_osiguranja';
+import { MatDialogRef, MatSnackBar, MAT_DIALOG_DATA } from '@angular/material';
+import { PoliseOsiguranjaService } from '../../../services/poliseosiguranja.services';
+import { OsiguravajucaKuca } from '../../../models/osiguravajuca_kuca';
+import { OsiguravajucaKucaService } from '../../../services/osiguravajucakuca.services';
+
+@Component({
+  selector: 'app-poliseosiguranja-dialog',
+  templateUrl: './poliseosiguranja-dialog.component.html',
+  styleUrls: ['./poliseosiguranja-dialog.component.css']
+})
+export class PoliseOsiguranjaDialogComponent implements OnInit {
+
+  osiguravajucakucaID: number;
+  osiguravajuceKuce: OsiguravajucaKuca[];
+  public flag: number;
+  constructor(public snackBar: MatSnackBar,
+              public dialogRef: MatDialogRef<PoliseOsiguranjaDialogComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: PoliseOsiguranja,
+              public poliseOsiguranjaService: PoliseOsiguranjaService,
+              public osiguravajucaKucaService: OsiguravajucaKucaService
+  ) { }
+
+  ngOnInit() {
+    this.osiguravajucaKucaService.getAllOsiguravajucaKuca().subscribe(osiguravajucakucaID =>
+      this.osiguravajuceKuce = osiguravajucakucaID
+    );
+  }
+
+  compareTo(a, b) {
+    // tslint:disable-next-line:triple-equals
+    return a.id == b.id;
+  }
+
+  onChange(poliseOsiguranjaID) {
+    this.data.poliseOsiguranjaID = poliseOsiguranjaID;
+  }
+  public add(): void {
+    this.data.poliseOsiguranjaID = -1;
+    this.poliseOsiguranjaService.addPoliseOsiguranja(this.data);
+    this.snackBar.open('Uspešno dodata marka: ' + this.data.vaziOd, 'U redu', {
+    duration: 2500,
+    });
+  }
+
+  public update(): void {
+    this.poliseOsiguranjaService.updatePoliseOsiguranja(this.data);
+    this.snackBar.open(' Uspešno modifikovana marka: ' + this.data.poliseOsiguranjaID, 'U redu', {
+    duration: 2500,
+    });
+  }
+
+  public delete(): void {
+    this.poliseOsiguranjaService.deletePoliseOsigiguranja(this.data.poliseOsiguranjaID);
+    this.snackBar.open('Uspešno obrisana marka: ' + this.data.poliseOsiguranjaID, 'U redu', {
+      duration: 2500,
+      });
+  }
+
+  public cancel(): void {
+    this.dialogRef.close();
+    this.snackBar.open('Odustali ste ' , 'U redu', {
+      duration: 1000,
+      });
+  }
+}

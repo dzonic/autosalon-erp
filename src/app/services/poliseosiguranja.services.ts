@@ -7,16 +7,16 @@ import { error } from '@angular/compiler/src/util';
 
 
 @Injectable()
-export class TipAutomobilaService {
+export class PoliseOsiguranjaService {
 
   private readonly API_URL = 'http://localhost:8081/api/poliseOsiguranja';
   private readonly API_URL_ID = 'http://localhost:8081/api/poliseOsiguranja/poliseOsiguranjaID';
-  private readonly API_URL_ID_W = 'http://localhost:8081/api/tipAutomobila/';
+  private readonly API_URL_ID_W = 'http://localhost:8081/api/poliseOsiguranja/';
 
   dataChange: BehaviorSubject<PoliseOsiguranja[]> = new BehaviorSubject<PoliseOsiguranja[]>([]);
   constructor(private httpClient: HttpClient) { }
 
-  public getAllTipAutomobila(): Observable<PoliseOsiguranja[]> {
+  public getAllPoliseOsiguranja(): Observable<PoliseOsiguranja[]> {
       this.httpClient.get<PoliseOsiguranja[]>(this.API_URL).subscribe(data => {
           this.dataChange.next(data);
       },

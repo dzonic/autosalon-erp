@@ -4,5 +4,6 @@ export class PoliseOsiguranja {
   poliseOsiguranjaID: number;
   vaziOd: Date;
   vaziDo: Date;
-  osiguravajucaKuca: OsiguravajucaKuca;
+  osiguravajucaKucaID: number;
+
 }

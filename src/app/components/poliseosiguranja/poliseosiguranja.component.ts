@@ -1,42 +1,41 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Marka } from '../../models/marka';
+import { PoliseOsiguranja } from '../../models/polise_osiguranja';
 import { HttpClient } from '@angular/common/http';
-import { MarkaService } from '../../services/marka.services';
+import { PoliseOsiguranjaService } from '../../services/poliseosiguranja.services';
 import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
-import { MarkaDialogComponent } from '../dialogs/marka-dialog/marka-dialog.component';
-import { Model } from 'src/app/models/model';
+import { PoliseOsiguranjaDialogComponent } from '../dialogs/poliseosiguranja-dialog/poliseosiguranja-dialog.component';
+import { OsiguravajucaKuca } from 'src/app/models/osiguravajuca_kuca';
 
 @Component({
-  selector: 'app-marka',
-  templateUrl: './marka.component.html',
-  styleUrls: ['./marka.component.css']
+  selector: 'app-poliseosiguranja',
+  templateUrl: './poliseosiguranja.component.html',
+  styleUrls: ['./poliseosiguranja.component.css']
 })
-export class MarkaComponent implements OnInit {
+export class PoliseOsiguranjaComponent implements OnInit {
 
-  displayedColumns = ['markaID', 'nazivMarke', 'model',  'actions'];
-  dataSource: MatTableDataSource<Marka>;
+  displayedColumns = ['poliseOsiguranjaID', 'vaziOd', 'vaziDo', 'osiguravajucaKuca',  'actions'];
+  dataSource: MatTableDataSource<PoliseOsiguranja>;
   @ViewChild(MatSort, { static: true })
   sort: MatSort;
   @ViewChild(MatPaginator, { static: true })
   paginator: MatPaginator;
-  selektovanaMarka: Marka;
+  selektovanaPolisaOsiguranja: PoliseOsiguranja;
 
   constructor(public httpClient: HttpClient,
               public dialog: MatDialog,
-              public markaService: MarkaService) { }
+              public poliseOsiguranjaService: PoliseOsiguranjaService) { }
 
   ngOnInit() {
     this.loadData();
   }
 
   public loadData() {
-    this.markaService.getAllMarka().subscribe(data => {
+    this.poliseOsiguranjaService.getAllPoliseOsiguranja().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
       // tslint:disable-next-line:no-shadowed-variable
       this.dataSource.filterPredicate = (data, filter: string) => {
         const accumulator = (currentTerm, key) => {
-          return key === 'modelID' ? currentTerm + data.modelID.modelID : currentTerm + data[key];
+          return key === 'osiguravajucaKuca' ? currentTerm + data.osiguravajucaKuca.osiguravajucaKucaID : currentTerm + data[key];
         };
         const dataStr = Object.keys(data).reduce(accumulator, '').toLowerCase();
         const transformedFilter = filter.trim().toLowerCase();
@@ -46,8 +45,8 @@ export class MarkaComponent implements OnInit {
       // tslint:disable-next-line:no-shadowed-variable
       this.dataSource.sortingDataAccessor = (data, property) => {
         switch (property) {
-          case 'model':
-             return data.modelID.modelID.toString().toLocaleLowerCase();
+          case 'osiguravajucaKuca':
+             return data.osiguravajucaKuca.osiguravajucaKucaID.toString().toLocaleLowerCase();
           default:
           return data[property];
         }
@@ -58,7 +57,7 @@ export class MarkaComponent implements OnInit {
     });
   }
   selectRow(row) {
-    this.selektovanaMarka = row;
+    this.selektovanaPolisaOsiguranja = row;
   }
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim();
@@ -66,10 +65,9 @@ export class MarkaComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  public openDialog(flag: number, markaID: number, nazivMarke: string, modelID: Model) {
-    const dialogRef = this.dialog.open(MarkaDialogComponent,
-                      // tslint:disable-next-line:object-literal-shorthand
-                      { data: { markaID: markaID, nazivMarke: nazivMarke,  modelID: modelID} });
+  public openDialog(flag: number, poliseOsiguranjaID: number, vaziOd: Date, vaziDo: Date, osigravajucaKucaID: OsiguravajucaKuca) {
+    const dialogRef = this.dialog.open(PoliseOsiguranjaDialogComponent,
+                      { data: { poliseOsiguranjaID, vaziOd, vaziDo, osiguravajucaKucaID: osigravajucaKucaID } });
     dialogRef.componentInstance.flag = flag;
     dialogRef.afterClosed().subscribe(result => {
       // tslint:disable-next-line:triple-equals
