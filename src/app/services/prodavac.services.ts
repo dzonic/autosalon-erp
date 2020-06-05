@@ -4,7 +4,6 @@ import { Prodavac } from '../models/prodavac';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 
-
 @Injectable()
 export class ProdavacService {
 

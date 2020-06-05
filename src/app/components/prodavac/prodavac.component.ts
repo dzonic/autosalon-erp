@@ -1,42 +1,42 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Marka } from '../../models/marka';
+import { Prodavac } from '../../models/prodavac';
 import { HttpClient } from '@angular/common/http';
-import { MarkaService } from '../../services/marka.services';
+import { ProdavacService } from '../../services/prodavac.services';
 import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
-import { MarkaDialogComponent } from '../dialogs/marka-dialog/marka-dialog.component';
-import { Model } from 'src/app/models/model';
+import { ProdavacDialogComponent } from '../dialogs/prodavac-dialog/prodavac-dialog.component';
+import { Korisnik } from 'src/app/models/korisnik';
 
 @Component({
-  selector: 'app-marka',
-  templateUrl: './marka.component.html',
-  styleUrls: ['./marka.component.css']
+  selector: 'app-prodavac',
+  templateUrl: './prodavac.component.html',
+  styleUrls: ['./prodavac.component.css']
 })
-export class MarkaComponent implements OnInit {
+export class ProdavacComponent implements OnInit {
 
-  displayedColumns = ['markaID', 'nazivMarke', 'model',  'actions'];
-  dataSource: MatTableDataSource<Marka>;
+  displayedColumns = ['prodavacID', 'ime', 'prezime', 'JMBG', 'adresa',
+  'kontakt', 'datumZaposlenja', 'korisnikID', 'actions'];
+  dataSource: MatTableDataSource<Prodavac>;
   @ViewChild(MatSort, { static: true })
   sort: MatSort;
   @ViewChild(MatPaginator, { static: true })
   paginator: MatPaginator;
-  selektovanaMarka: Marka;
+  selektovanProdavac: Prodavac;
 
   constructor(public httpClient: HttpClient,
               public dialog: MatDialog,
-              public markaService: MarkaService) { }
+              public prodavacService: ProdavacService) { }
 
   ngOnInit() {
     this.loadData();
   }
 
   public loadData() {
-    this.markaService.getAllMarka().subscribe(data => {
+    this.prodavacService.getAllProdavac().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
       // tslint:disable-next-line:no-shadowed-variable
       this.dataSource.filterPredicate = (data, filter: string) => {
         const accumulator = (currentTerm, key) => {
-          return key === 'modelID' ? currentTerm + data.modelID.modelID : currentTerm + data[key];
+          return key === 'korisnikID' ? currentTerm + data.korisnikID.korisnikID : currentTerm + data[key];
         };
         const dataStr = Object.keys(data).reduce(accumulator, '').toLowerCase();
         const transformedFilter = filter.trim().toLowerCase();
@@ -46,8 +46,8 @@ export class MarkaComponent implements OnInit {
       // tslint:disable-next-line:no-shadowed-variable
       this.dataSource.sortingDataAccessor = (data, property) => {
         switch (property) {
-          case 'modelID':
-             return data.modelID.toString().toLocaleLowerCase();
+          case 'korisnik':
+             return data.korisnikID.korisnikID.toString().toLocaleLowerCase();
           default:
           return data[property];
         }
@@ -58,7 +58,7 @@ export class MarkaComponent implements OnInit {
     });
   }
   selectRow(row) {
-    this.selektovanaMarka = row;
+    this.selektovanProdavac = row;
   }
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim();
@@ -66,10 +66,12 @@ export class MarkaComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  public openDialog(flag: number, markaID: number, nazivMarke: string, modelID: Model) {
-    const dialogRef = this.dialog.open(MarkaDialogComponent,
+  // tslint:disable-next-line:max-line-length
+  public openDialog(flag: number, kupacID: number, ime: string, prezime: string, JMBG: number, adresa: string, kontakt: string, datumZaposlenja: Date, korisnikID: Korisnik) {
+    const dialogRef = this.dialog.open(ProdavacDialogComponent,
                       // tslint:disable-next-line:object-literal-shorthand
-                      { data: { markaID: markaID, nazivMarke: nazivMarke,  modelID: modelID} });
+                      // tslint:disable-next-line:max-line-length
+                      { data: { kupacID, ime, prezime, JMBG, adresa, kontakt, datumZaposlenja, korisnikID} });
     dialogRef.componentInstance.flag = flag;
     dialogRef.afterClosed().subscribe(result => {
       // tslint:disable-next-line:triple-equals

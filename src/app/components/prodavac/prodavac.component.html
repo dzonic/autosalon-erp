@@ -1,0 +1,80 @@
+<mat-toolbar color="primary">
+  <span class="title-center">Prodavci</span>
+</mat-toolbar>
+
+<div class="container mat-elevation-z8">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  <mat-table #table [dataSource]="dataSource" class="mat-cell" matSort>
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+    <!-- ID Column -->
+    <ng-container matColumnDef="prodavacID">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.prodavacID}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="ime">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Ime</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.ime}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="prezime">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Prezime</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.prezime}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="JMBG">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>JMBG</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.JMBG}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="adresa">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Adresa</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.adresa}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="kontakt">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Kontakt</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.kontakt}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="datumZaposlenja">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Datum zaposlenja</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.datumZaposlenja | date: "yyyy-MM-dd"}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="korisnikID">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Korisnik ID</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.korisnikID}} </mat-cell>
+    </ng-container>
+
+    <!-- actions -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>
+        <button mat-icon-button color="primary" (click)="openDialog(1)">
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row; let i=index;">
+        <button mat-icon-button color="primary" (click)="openDialog(2,row.kupacID, row.ime, row.prezime,
+        row.JMBG, row.adresa, row.kontakt, row.datumZaposlenja, row.korisnikID)">
+          <mat-icon aria-label="Edit">edit</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="openDialog(3,row.kupacID, row.ime, row.prezime,
+        row.JMBG, row.adresa, row.kontakt, row.datumZaposlenja, row.korisnikID)">
+          <mat-icon aria-label="Delete">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row style="cursor: default" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSize]="[5]" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+
+  </mat-paginator>
+</div>
+
