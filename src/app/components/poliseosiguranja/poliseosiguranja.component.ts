@@ -35,7 +35,7 @@ export class PoliseOsiguranjaComponent implements OnInit {
       // tslint:disable-next-line:no-shadowed-variable
       this.dataSource.filterPredicate = (data, filter: string) => {
         const accumulator = (currentTerm, key) => {
-          return key === 'osiguravajucaKuca' ? currentTerm + data.osiguravajucaKuca.osiguravajucaKucaID : currentTerm + data[key];
+          return key === 'osiguravajucaKucaID' ? currentTerm + data.osiguravajucaKucaID.osiguravajucaKucaID : currentTerm + data[key];
         };
         const dataStr = Object.keys(data).reduce(accumulator, '').toLowerCase();
         const transformedFilter = filter.trim().toLowerCase();
@@ -45,8 +45,8 @@ export class PoliseOsiguranjaComponent implements OnInit {
       // tslint:disable-next-line:no-shadowed-variable
       this.dataSource.sortingDataAccessor = (data, property) => {
         switch (property) {
-          case 'osiguravajucaKuca':
-             return data.osiguravajucaKuca.osiguravajucaKucaID.toString().toLocaleLowerCase();
+          case 'osiguravajucaKucaID':
+             return data.osiguravajucaKucaID.osiguravajucaKucaID.toString().toLocaleLowerCase();
           default:
           return data[property];
         }

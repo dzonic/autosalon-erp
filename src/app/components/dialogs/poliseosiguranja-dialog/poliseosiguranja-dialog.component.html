@@ -17,9 +17,9 @@
 
     <div class="form">
       <mat-form-field>
-        <mat-select [(ngModel)]="data.osiguravajucaKuca" placeholder="OsiguravajucaKuca" name="osiguravajucaKucaID" [compareWith]="compareTo" [disabled]="flag == 3">
-          <mat-option *ngFor="let osiguravajucaKucaID of osiguravajuceKuce" [value]="osiguravajucaKucaID">
-            {{ osiguravajucaKucaID.osiguravajucaKucaID }}
+        <mat-select [(ngModel)]="data.osiguravajucaKucaID" placeholder="OsiguravajucaKuca" name="osiguravajucaKucaID" [compareWith]="compareTo" [disabled]="flag == 3">
+          <mat-option *ngFor="let osiguravajucaKucaID of osiguravajuceKuce" [value]="osiguravajucaKucaID.osiguravajucaKucaID">
+            {{ osiguravajucaKucaID.nazivOsiguravajuceKuce }}
           </mat-option>
         </mat-select>
       </mat-form-field>

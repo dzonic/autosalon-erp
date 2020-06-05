@@ -57,6 +57,9 @@ import { PoliseOsiguranjaService } from './services/poliseosiguranja.services';
 import { KorisnikComponent } from './components/korisnik/korisnik.component';
 import { KorisnikDialogComponent } from './components/dialogs/korisnik-dialog/korisnik-dialog.component';
 import { KorisnikService } from './services/korisnik.services';
+import { KupacService } from './services/kupac.services';
+import { KupacComponent } from './components/kupac/kupac.component';
+import { KupacDialogComponent } from './components/dialogs/kupac-dialog/kupac-dialog.component';
 
 
 
@@ -74,6 +77,7 @@ const Routes = [
   {path: 'tipautomobila', component: TipAutomobilaComponent},
   {path: 'marka', component: MarkaComponent},
   {path: 'korisnik', component: KorisnikComponent},
+  {path: 'kupac', component: KupacComponent},
   {path: 'polisaosiguranja', component: PoliseOsiguranjaComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 ];
@@ -98,7 +102,9 @@ const Routes = [
     PoliseOsiguranjaComponent,
     PoliseOsiguranjaDialogComponent,
     KorisnikComponent,
-    KorisnikDialogComponent
+    KorisnikDialogComponent,
+    KupacComponent,
+    KupacDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -133,10 +139,10 @@ const Routes = [
   ],
   entryComponents: [
      ServisDialogComponent, ModelDialogComponent, TipAutomobilaDialogComponent, OsiguravajucaKucaDialogComponent,
-     MarkaDialogComponent, PoliseOsiguranjaDialogComponent, KorisnikDialogComponent
+     MarkaDialogComponent, PoliseOsiguranjaDialogComponent, KorisnikDialogComponent, KupacDialogComponent
   ],
   providers: [ServisService, ModelService, TipAutomobilaService, OsiguravajucaKucaService,
-  MarkaService, PoliseOsiguranjaService, KorisnikService],
+  MarkaService, PoliseOsiguranjaService, KorisnikService, KupacService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

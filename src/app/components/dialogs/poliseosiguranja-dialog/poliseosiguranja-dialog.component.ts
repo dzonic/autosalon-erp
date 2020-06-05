@@ -5,6 +5,7 @@ import { PoliseOsiguranjaService } from '../../../services/poliseosiguranja.serv
 import { OsiguravajucaKuca } from '../../../models/osiguravajuca_kuca';
 import { OsiguravajucaKucaService } from '../../../services/osiguravajucakuca.services';
 
+
 @Component({
   selector: 'app-poliseosiguranja-dialog',
   templateUrl: './poliseosiguranja-dialog.component.html',
@@ -12,7 +13,6 @@ import { OsiguravajucaKucaService } from '../../../services/osiguravajucakuca.se
 })
 export class PoliseOsiguranjaDialogComponent implements OnInit {
 
-  osiguravajucakucaID: number;
   osiguravajuceKuce: OsiguravajucaKuca[];
   public flag: number;
   constructor(public snackBar: MatSnackBar,
@@ -23,8 +23,8 @@ export class PoliseOsiguranjaDialogComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.osiguravajucaKucaService.getAllOsiguravajucaKuca().subscribe(osiguravajucakucaID =>
-      this.osiguravajuceKuce = osiguravajucakucaID
+    this.osiguravajucaKucaService.getAllOsiguravajucaKuca().subscribe(osiguravajuceKuce =>
+      this.osiguravajuceKuce = osiguravajuceKuce
     );
   }
 
@@ -33,8 +33,8 @@ export class PoliseOsiguranjaDialogComponent implements OnInit {
     return a.id == b.id;
   }
 
-  onChange(poliseOsiguranjaID) {
-    this.data.poliseOsiguranjaID = poliseOsiguranjaID;
+  onChange(osiguravajucaKucaID) {
+    this.data.osiguravajucaKucaID = osiguravajucaKucaID;
   }
   public add(): void {
     this.data.poliseOsiguranjaID = -1;
