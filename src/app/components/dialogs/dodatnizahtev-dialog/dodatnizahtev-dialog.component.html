@@ -1,0 +1,35 @@
+<div class="container">
+  <h3 mat-dialog-title *ngIf="flag == 1">Dodaj dodatni zahtev</h3>
+  <h3 mat-dialog-title *ngIf="flag == 2">Modifikuj dodatni zahtev: {{data.opisZahteva}}</h3>
+  <h3 mat-dialog-title *ngIf="flag == 3">Obriši tim: {{data.opisZahteva}}</h3>
+  <form class="mat-dialog-content" ngSubmit='submit' #formControl="ngForm">
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Opis zahteva" [(ngModel)]="data.opisZahteva" name="opisZahteva" [disabled]="flag == 3" required>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Datum podnošenja - format datuma [yyyy-MM-dd]" [(ngModel)]="data.datumPodnosenja" name="datumPodnosenja" [disabled]="flag == 3" required>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field>
+        <mat-select [(ngModel)]="data.kupoprodajniUgovor" placeholder="Kupoprodajni ugovor" name="kupoprodajniUgovorID" [compareWith]="compareTo" [disabled]="flag == 3">
+          <mat-option *ngFor="let kupoprodajniUgovorID of kupoprodajniUgovori" [value]="kupoprodajniUgovorID">
+            {{ kupoprodajniUgovorID.kupoprodajniUgovorID }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+      <button mat-button *ngIf="flag == 1" type="submit" [mat-dialog-close]="1" (click)="add()" [disabled]="!formControl.valid">Sačuvaj</button>
+      <button mat-button *ngIf="flag == 2" type="submit" [mat-dialog-close]="1" (click)="update()" [disabled]="!formControl.valid">Sačuvaj</button>
+      <button mat-button *ngIf="flag == 3" type="submit" [mat-dialog-close]="1" (click)="delete()">Obriši</button>
+      <button mat-button (click)="cancel()">Poništi</button>
+    </div>
+  </form>
+</div>

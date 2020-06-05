@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <span class="title-center">Polise Osiguranja</span>
+  <span class="title-center">Dodatni zahtevi</span>
 </mat-toolbar>
 
 <div class="container mat-elevation-z8">
@@ -10,24 +10,24 @@
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
     <!-- ID Column -->
-    <ng-container matColumnDef="poliseOsiguranjaID">
+    <ng-container matColumnDef="dodatniZahtevID">
       <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{row.poliseOsiguranjaID}}</mat-cell>
+      <mat-cell *matCellDef="let row">{{row.dodatniZahtevID}}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="vaziOd">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Važi od:</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.vaziOd | date : "yyyy-MM-dd"}}</mat-cell>
+    <ng-container matColumnDef="opisZahteva">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Opis zahteva</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.opisZahteva}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="vaziDo">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Važi do:</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.vaziDo | date : "yyyy-MM-dd"}}</mat-cell>
+    <ng-container matColumnDef="datumPodnosenja">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Datum podnošenja</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.datumPodnosenja}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="osiguravajucaKuca">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Osiguravajuća Kuća ID</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.osiguravajucaKucaID}} </mat-cell>
+    <ng-container matColumnDef="kupoprodajniugovor">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Kupoprodajni ugovor ID</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.kupoprodajniUgovorID}} </mat-cell>
     </ng-container>
 
     <!-- actions -->
@@ -39,10 +39,10 @@
       </mat-header-cell>
 
       <mat-cell *matCellDef="let row; let i=index;">
-        <button mat-icon-button color="primary" (click)="openDialog(2,row.poliseOsiguranjaID, row.vaziOd, row.vaziDo, row.osiguravajucaKucaID)">
+        <button mat-icon-button color="primary" (click)="openDialog(2,row.dodatniZahtevID, row.opisZahteva, row.datumPodnosenja, row.kupoprodajniUgovorID)">
           <mat-icon aria-label="Edit">edit</mat-icon>
         </button>
-        <button mat-icon-button color="primary" (click)="openDialog(3,row.poliseOsiguranjaID, row.vaziOd, row.vaziDo, row.osiguravajucaKucaID)">
+        <button mat-icon-button color="primary" (click)="openDialog(3,,row.dodatniZahtevID, row.opisZahteva, row.datumPodnosenja, row.kupoprodajniUgovorID">
           <mat-icon aria-label="Delete">delete</mat-icon>
         </button>
       </mat-cell>
