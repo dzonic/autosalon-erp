@@ -31,7 +31,7 @@ export class ModelService {
   }
 
   public updateModel(model: Model): void {
-    this.httpClient.put(this.API_URL_ID, model).subscribe();
+    this.httpClient.put(this.API_URL + '/' + model.modelID, model).subscribe();
   }
 
   public deleteModel(modelID: number): void {
