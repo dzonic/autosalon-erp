@@ -27,21 +27,21 @@ export class TipAutomobilaDialogComponent implements OnInit {
   public add(): void {
     this.data.tipAutomobilaID = -1;
     this.tipAutomobilaService.addTipAutomobila(this.data);
-    this.snackBar.open('Uspešno dodat tip: ' + this.data.nazivTipaAutomobila, 'U redu', {
+    this.snackBar.open('Uspešno dodat tip automobila: ' + this.data.nazivTipaAutomobila, 'U redu', {
     duration: 2500,
     });
   }
 
   public update(): void {
     this.tipAutomobilaService.updateTipAutomobila(this.data);
-    this.snackBar.open(' Uspešno modifikovan tip: ' + this.data.tipAutomobilaID, 'U redu', {
+    this.snackBar.open(' Uspešno modifikovan tip automobila: ' + this.data.tipAutomobilaID, 'U redu', {
     duration: 2500,
     });
   }
 
   public delete(): void {
     this.tipAutomobilaService.deleteTipAutomobila(this.data.tipAutomobilaID);
-    this.snackBar.open('Uspešno obrisan tip: ' + this.data.tipAutomobilaID, 'U redu', {
+    this.snackBar.open('Uspešno obrisan tip automobila: ' + this.data.tipAutomobilaID, 'U redu', {
       duration: 2500,
       });
   }

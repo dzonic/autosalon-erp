@@ -1,7 +1,7 @@
 <div class="container">
-  <h3 mat-dialog-title *ngIf="flag == 1">Dodaj osiguravajuću kuću</h3>
-  <h3 mat-dialog-title *ngIf="flag == 2">Modifikuj osiguravajuću kuću: {{data.vaziOd}}</h3>
-  <h3 mat-dialog-title *ngIf="flag == 3">Obriši osiguravajuću kuću: {{data.vaziOd}}</h3>
+  <h3 mat-dialog-title *ngIf="flag == 1">Dodaj polisu osiguranja</h3>
+  <h3 mat-dialog-title *ngIf="flag == 2">Modifikuj polisu osiguranja: {{data.vaziOd | date : "yyyy-MM-dd"}}</h3>
+  <h3 mat-dialog-title *ngIf="flag == 3">Obriši polisu osiguranja: {{data.vaziOd | date : "yyyy-MM-dd"}}</h3>
   <form class="mat-dialog-content" ngSubmit='submit' #formControl="ngForm">
     <div class="form">
       <mat-form-field>

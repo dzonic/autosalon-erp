@@ -17,7 +17,7 @@
 
     <div class="form">
       <mat-form-field>
-        <mat-select [(ngModel)]="data.kupoprodajniUgovor" placeholder="Kupoprodajni ugovor" name="kupoprodajniUgovorID" [compareWith]="compareTo" [disabled]="flag == 3">
+        <mat-select [(ngModel)]="data.kupoprodajniUgovor" placeholder="Kupoprodajni ugovor" name="kupoprodajniUgovorID" [compareWith]="compareTo" [disabled]="flag == 3" required>
           <mat-option *ngFor="let kupoprodajniUgovorID of kupoprodajniUgovori" [value]="kupoprodajniUgovorID">
             {{ kupoprodajniUgovorID.kupoprodajniUgovorID }}
           </mat-option>

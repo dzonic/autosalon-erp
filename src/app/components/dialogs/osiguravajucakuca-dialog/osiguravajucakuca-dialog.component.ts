@@ -41,7 +41,7 @@ export class OsiguravajucaKucaDialogComponent implements OnInit {
 
   public delete(): void {
     this.osiguravajucaKucaService.deleteOsiguravajucaKuca(this.data.osiguravajucaKucaID);
-    this.snackBar.open('Uspešno obrisan model: ' + this.data.osiguravajucaKucaID, 'U redu', {
+    this.snackBar.open('Uspešno obrisana osiguravajuća kuća: ' + this.data.osiguravajucaKucaID, 'U redu', {
       duration: 2500,
       });
   }

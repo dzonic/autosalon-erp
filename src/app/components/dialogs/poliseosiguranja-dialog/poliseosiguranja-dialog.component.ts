@@ -39,21 +39,21 @@ export class PoliseOsiguranjaDialogComponent implements OnInit {
   public add(): void {
     this.data.poliseOsiguranjaID = -1;
     this.poliseOsiguranjaService.addPoliseOsiguranja(this.data);
-    this.snackBar.open('Uspešno dodata marka: ' + this.data.vaziOd, 'U redu', {
+    this.snackBar.open('Uspešno dodata polisa: ' + this.data.vaziOd, 'U redu', {
     duration: 2500,
     });
   }
 
   public update(): void {
     this.poliseOsiguranjaService.updatePoliseOsiguranja(this.data);
-    this.snackBar.open(' Uspešno modifikovana marka: ' + this.data.poliseOsiguranjaID, 'U redu', {
+    this.snackBar.open(' Uspešno modifikovana polisa: ' + this.data.poliseOsiguranjaID, 'U redu', {
     duration: 2500,
     });
   }
 
   public delete(): void {
     this.poliseOsiguranjaService.deletePoliseOsigiguranja(this.data.poliseOsiguranjaID);
-    this.snackBar.open('Uspešno obrisana marka: ' + this.data.poliseOsiguranjaID, 'U redu', {
+    this.snackBar.open('Uspešno obrisana polisa: ' + this.data.poliseOsiguranjaID, 'U redu', {
       duration: 2500,
       });
   }
