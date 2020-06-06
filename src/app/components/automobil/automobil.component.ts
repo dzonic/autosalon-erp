@@ -16,7 +16,7 @@ import { TipAutomobila } from '../../models/tip_automobila';
 
 
 @Component({
-  selector: 'app-igrac',
+  selector: 'app-automobil',
   templateUrl: './automobil.component.html',
   styleUrls: ['./automobil.component.css']
 })
