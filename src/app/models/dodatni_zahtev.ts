@@ -1,4 +1,4 @@
-import {KupoprodajniUgovor} from './kuporpodajni_ugovor';
+import {KupoprodajniUgovor} from './kupoprodajni_ugovor';
 
 export class DodatniZahtev {
   dodatniZahtevID: number;

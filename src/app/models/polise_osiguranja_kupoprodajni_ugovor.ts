@@ -1,4 +1,4 @@
-import {KupoprodajniUgovor} from './kuporpodajni_ugovor';
+import {KupoprodajniUgovor} from './kupoprodajni_ugovor';
 import {PoliseOsiguranja} from './polise_osiguranja';
 
 
