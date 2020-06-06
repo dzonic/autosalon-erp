@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { OsiguravajucaKuca } from '../models/osiguravajuca_kuca';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { error } from '@angular/compiler/src/util';
+
 
 
 
@@ -10,7 +10,6 @@ import { error } from '@angular/compiler/src/util';
 export class OsiguravajucaKucaService {
 
   private readonly API_URL = 'http://localhost:8081/api/osiguravajucaKuca';
-  private readonly API_URL_ID = 'http://localhost:8081/api/osiguravajucaKuca/osiguravajucaKucaID';
   private readonly API_URL_ID_W = 'http://localhost:8081/api/osiguravajucaKuca/';
 
   dataChange: BehaviorSubject<OsiguravajucaKuca[]> = new BehaviorSubject<OsiguravajucaKuca[]>([]);
@@ -33,7 +32,7 @@ export class OsiguravajucaKucaService {
 
   // tslint:disable-next-line:variable-name
   public updateOsiguravajucaKuca(osiguravajuca_kuca: OsiguravajucaKuca): void {
-    this.httpClient.put(this.API_URL_ID, osiguravajuca_kuca).subscribe();
+    this.httpClient.put(this.API_URL + '/' + osiguravajuca_kuca.osiguravajucaKucaID, osiguravajuca_kuca).subscribe();
   }
 
   public deleteOsiguravajucaKuca(osiguravajucaKucaID: number): void {

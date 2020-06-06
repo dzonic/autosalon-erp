@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { TipAutomobila } from '../models/tip_automobila';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { error } from '@angular/compiler/src/util';
+
 
 
 
@@ -10,7 +10,6 @@ import { error } from '@angular/compiler/src/util';
 export class TipAutomobilaService {
 
   private readonly API_URL = 'http://localhost:8081/api/tipAutomobila';
-  private readonly API_URL_ID = 'http://localhost:8081/api/tipAutomobila/tipAutomobilaID';
   private readonly API_URL_ID_W = 'http://localhost:8081/api/tipAutomobila/';
 
   dataChange: BehaviorSubject<TipAutomobila[]> = new BehaviorSubject<TipAutomobila[]>([]);
@@ -34,7 +33,7 @@ export class TipAutomobilaService {
 
   // tslint:disable-next-line:variable-name
   public updateTipAutomobila(tip_automobila: TipAutomobila): void {
-    this.httpClient.put(this.API_URL_ID, tip_automobila).subscribe();
+    this.httpClient.put(this.API_URL + '/' + tip_automobila.tipAutomobilaID, tip_automobila).subscribe();
   }
 
   public deleteTipAutomobila(tipAutomobilaID: number): void {

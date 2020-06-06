@@ -9,7 +9,6 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export class KorisnikService {
 
   private readonly API_URL = 'http://localhost:8081/api/korisnik';
-  private readonly API_URL_ID = 'http://localhost:8081/api/korisnik/korisnikID';
   private readonly API_URL_ID_W = 'http://localhost:8081/api/korisnik/';
 
   dataChange: BehaviorSubject<Korisnik[]> = new BehaviorSubject<Korisnik[]>([]);
@@ -31,8 +30,8 @@ export class KorisnikService {
     this.httpClient.post(this.API_URL, korisnik).subscribe();
   }
 
-  public updateKorisnik(korinsik: Korisnik): void {
-    this.httpClient.put(this.API_URL_ID, korinsik).subscribe();
+  public updateKorisnik(korisnik: Korisnik): void {
+    this.httpClient.put(this.API_URL + '/' + korisnik.korisnikID, korisnik).subscribe();
   }
 
   public deleteKorisnik(korisnikID: number): void {

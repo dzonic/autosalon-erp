@@ -9,7 +9,6 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export class KupacService {
 
   private readonly API_URL = 'http://localhost:8081/api/kupac';
-  private readonly API_URL_ID = 'http://localhost:8081/api/kupac/kupacID';
   private readonly API_URL_ID_W = 'http://localhost:8081/api/kupac/';
 
   dataChange: BehaviorSubject<Kupac[]> = new BehaviorSubject<Kupac[]>([]);
@@ -32,7 +31,7 @@ export class KupacService {
   }
 
   public updateKupac(kupac: Kupac): void {
-    this.httpClient.put(this.API_URL_ID, kupac).subscribe();
+    this.httpClient.put(this.API_URL + '/' + kupac.kupacID, kupac).subscribe();
   }
 
   public deleteKupac(kupacID: number): void {

@@ -9,7 +9,6 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export class MarkaService {
 
   private readonly API_URL = 'http://localhost:8081/api/marka';
-  private readonly API_URL_ID = 'http://localhost:8081/api/marka/markaID';
   private readonly API_URL_ID_W = 'http://localhost:8081/api/marka/';
 
   dataChange: BehaviorSubject<Marka[]> = new BehaviorSubject<Marka[]>([]);
@@ -32,7 +31,7 @@ export class MarkaService {
   }
 
   public updateMarka(marka: Marka): void {
-    this.httpClient.put(this.API_URL_ID, marka).subscribe();
+    this.httpClient.put(this.API_URL + '/' + marka.markaID, marka).subscribe();
   }
 
   public deleteMarka(markaID: number): void {

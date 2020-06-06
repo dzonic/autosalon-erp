@@ -9,7 +9,6 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export class DodatniZahtevService {
 
   private readonly API_URL = 'http://localhost:8081/api/dodatniZahtev';
-  private readonly API_URL_ID = 'http://localhost:8081/api/dodatniZahtev/dodatniZahtevID';
   private readonly API_URL_ID_W = 'http://localhost:8081/api/dodatniZahtev/';
 
   dataChange: BehaviorSubject<DodatniZahtev[]> = new BehaviorSubject<DodatniZahtev[]>([]);
@@ -34,7 +33,7 @@ export class DodatniZahtevService {
 
   // tslint:disable-next-line:variable-name
   public updateDodatniZahtev(dodatni_zahtev: DodatniZahtev): void {
-    this.httpClient.put(this.API_URL_ID, dodatni_zahtev).subscribe();
+    this.httpClient.put(this.API_URL + '/' + dodatni_zahtev.dodatniZahtevID, dodatni_zahtev).subscribe();
   }
 
   public deleteDodatniZahtev(dodatniZahtevID: number): void {

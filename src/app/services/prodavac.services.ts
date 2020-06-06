@@ -8,7 +8,6 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export class ProdavacService {
 
   private readonly API_URL = 'http://localhost:8081/api/prodavac';
-  private readonly API_URL_ID = 'http://localhost:8081/api/prodavac/prodavacID';
   private readonly API_URL_ID_W = 'http://localhost:8081/api/prodavac/';
 
   dataChange: BehaviorSubject<Prodavac[]> = new BehaviorSubject<Prodavac[]>([]);
@@ -31,7 +30,7 @@ export class ProdavacService {
   }
 
   public updateProdavac(prodavac: Prodavac): void {
-    this.httpClient.put(this.API_URL_ID, prodavac).subscribe();
+    this.httpClient.put(this.API_URL + '/' + prodavac.prodavacID, prodavac).subscribe();
   }
 
   public deleteProdavac(prodavacID: number): void {

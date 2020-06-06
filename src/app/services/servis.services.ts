@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Servis } from '../models/servis';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { error } from '@angular/compiler/src/util';
+
 
 
 
@@ -10,7 +10,6 @@ import { error } from '@angular/compiler/src/util';
 export class ServisService {
 
   private readonly API_URL = 'http://localhost:8081/api/servis';
-  private readonly API_URL_ID = 'http://localhost:8081/api/servis/servisID';
   private readonly API_URL_ID_W = 'http://localhost:8081/api/servis/';
 
   dataChange: BehaviorSubject<Servis[]> = new BehaviorSubject<Servis[]>([]);
@@ -33,7 +32,7 @@ export class ServisService {
   }
 
   public updateServis(servis: Servis): void {
-    this.httpClient.put(this.API_URL_ID, servis).subscribe();
+    this.httpClient.put(this.API_URL + '/' + servis.servisID, servis).subscribe();
   }
 
   public deleteServis(servisID: number): void {

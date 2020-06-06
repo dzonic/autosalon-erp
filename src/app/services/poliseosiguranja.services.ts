@@ -10,7 +10,6 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export class PoliseOsiguranjaService {
 
   private readonly API_URL = 'http://localhost:8081/api/poliseOsiguranja';
-  private readonly API_URL_ID = 'http://localhost:8081/api/poliseOsiguranja/poliseOsiguranjaID';
   private readonly API_URL_ID_W = 'http://localhost:8081/api/poliseOsiguranja/';
 
   dataChange: BehaviorSubject<PoliseOsiguranja[]> = new BehaviorSubject<PoliseOsiguranja[]>([]);
@@ -34,7 +33,7 @@ export class PoliseOsiguranjaService {
 
   // tslint:disable-next-line:variable-name
   public updatePoliseOsiguranja(polise_osiguranja: PoliseOsiguranja): void {
-    this.httpClient.put(this.API_URL_ID, polise_osiguranja).subscribe();
+    this.httpClient.put(this.API_URL + '/' + polise_osiguranja.poliseOsiguranjaID, polise_osiguranja).subscribe();
   }
 
   public deletePoliseOsigiguranja(poliseOsiguranjaID: number): void {

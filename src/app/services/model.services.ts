@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Model } from '../models/model';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { error } from '@angular/compiler/src/util';
 
 
 
@@ -10,7 +9,6 @@ import { error } from '@angular/compiler/src/util';
 export class ModelService {
 
   private readonly API_URL = 'http://localhost:8081/api/model';
-  private readonly API_URL_ID = 'http://localhost:8081/api/model/modelID';
   private readonly API_URL_ID_W = 'http://localhost:8081/api/model/';
 
   dataChange: BehaviorSubject<Model[]> = new BehaviorSubject<Model[]>([]);
