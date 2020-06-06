@@ -1,0 +1,74 @@
+<mat-toolbar color="primary">
+  <span class="title-center">Kupoprodajni ugovori</span>
+</mat-toolbar>
+
+<div class="container mat-elevation-z8">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  <mat-table #table [dataSource]="dataSource" class="mat-cell" matSort>
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+    <!-- ID Column -->
+    <ng-container matColumnDef="kupoprodajniUgovorID">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.kupoprodajniUgovorID}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="datumSklapanja">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Sklopljen</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.datumSklapanja | date: "yyyy-MM-dd"}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nacinPlacanja">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Plaćanje</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.nacinPlacanja}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="cena">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Iznos</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.cena}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="automobilID">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Auto ID</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.automobilID}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="kupacID">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Kupac ID</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.kupacID}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="prodavacID">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Prodavac ID</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.prodavacID}}</mat-cell>
+    </ng-container>
+
+    <!-- actions -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>
+        <button mat-icon-button color="primary" (click)="openDialog(1)">
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row; let i=index;">
+        <button mat-icon-button color="primary" (click)="openDialog(2,row.kupoprodajniUgovorID, row.datumSklapanja, row.nacinPlacanja, row.cena,
+         row.automobilID, row.kupacID, row.prodavacID)">
+          <mat-icon aria-label="Edit">edit</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="openDialog(3,row.kupoprodajniUgovorID, row.datumSklapanja, row.nacinPlacanja, row.cena,
+        row.automobilID, row.kupacID, row.prodavacID)">
+          <mat-icon aria-label="Delete">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row style="cursor: default" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSize]="[5]" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+
+  </mat-paginator>
+</div>
