@@ -27,21 +27,21 @@ export class KorisnikDialogComponent implements OnInit {
   public add(): void {
     this.data.korisnikID = -1;
     this.korisnikService.addKorisnik(this.data);
-    this.snackBar.open('Uspešno dodat model: ' + this.data.email, 'U redu', {
+    this.snackBar.open('Uspešno dodat korisnik: ' + this.data.email, 'U redu', {
     duration: 2500,
     });
   }
 
   public update(): void {
     this.korisnikService.updateKorisnik(this.data);
-    this.snackBar.open(' Uspešno modifikovan model: ' + this.data.korisnikID, 'U redu', {
+    this.snackBar.open(' Uspešno modifikovan korisnik: ' + this.data.korisnikID, 'U redu', {
     duration: 2500,
     });
   }
 
   public delete(): void {
     this.korisnikService.deleteKorisnik(this.data.korisnikID);
-    this.snackBar.open('Uspešno obrisan model: ' + this.data.korisnikID, 'U redu', {
+    this.snackBar.open('Uspešno obrisan korisnik: ' + this.data.korisnikID, 'U redu', {
       duration: 2500,
       });
   }
