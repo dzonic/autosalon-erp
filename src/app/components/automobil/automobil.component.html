@@ -1,0 +1,84 @@
+<mat-toolbar color="primary">
+  <span class="title-center">Lista automobila</span>
+</mat-toolbar>
+
+<div class="container mat-elevation-z8">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  <mat-table #table [dataSource]="dataSource" class="mat-cell" matSort>
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+    <!-- ID Column -->
+    <ng-container matColumnDef="automobilID">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.automobilID}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="kubikaza">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Kubikaža</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.kubikaza}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="brojSasije">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Šasija</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.brojSasije}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="konjskaSnaga">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>KS</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.konjskaSnaga}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="bojaAutomobila">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Boja</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.bojaAutomobila}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="godinaProizvodnje">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Godište</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.godinaProizvodnje}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="markaID">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Marka ID</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.markaID}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="tipAutomobilaID">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Tip auta ID</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.tipAutomobilaID}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="servisID">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Servis ID</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.servisID}</mat-cell>
+    </ng-container>
+
+    <!-- actions -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>
+        <button mat-icon-button color="primary" (click)="openDialog(1)">
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row; let i=index;">
+        <button mat-icon-button color="primary" (click)="openDialog(2,row.automobilID, row.kubikaza, row.brojSasije row.konjskaSnaga,
+        row.bojaAutomobila, row.godinaProizvodnje, row.markaID, row.tipAutomobilaID, row.servisID)">
+          <mat-icon aria-label="Edit">edit</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="openDialog(3,row.automobilID, row.kubikaza, row.brojSasije row.konjskaSnaga,
+        row.bojaAutomobila, row.godinaProizvodnje, row.markaID, row.tipAutomobilaID, row.servisID)">
+          <mat-icon aria-label="Delete">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row style="cursor: default" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSize]="[5]" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+
+  </mat-paginator>
+</div>
