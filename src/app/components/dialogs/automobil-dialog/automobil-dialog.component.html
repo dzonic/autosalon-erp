@@ -1,0 +1,66 @@
+<div class="container">
+  <h3 mat-dialog-title *ngIf="flag == 1">Dodaj automobil</h3>
+  <h3 mat-dialog-title *ngIf="flag == 2">Modifikuj automobil: {{data.automobilID}}</h3>
+  <h3 mat-dialog-title *ngIf="flag == 3">Obriši automobil: {{data.automobilID}</h3>
+  <form class="mat-dialog-content" ngSubmit='submit' #formControl="ngForm">
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Kubikaza" [(ngModel)]="data.kubikaza"  type="number" name="kubikaza" [disabled]="flag == 3" required>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Broj sasije" [(ngModel)]="data.brojSasije" type="number" name="brojSasije" [disabled]="flag == 3" required>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Konjska snaga" [(ngModel)]="data.konjskaSnaga"  type="number" name="konjskaSnaga" [disabled]="flag == 3" required>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Boja" [(ngModel)]="data.bojaAutomobila" name="bojaAutomobila" [disabled]="flag == 3" required>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Godina proizvodnje" [(ngModel)]="data.godinaProizvodnje"   type="number" name="godinaProizvodnje" [disabled]="flag == 3" required>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field>
+        <mat-select [(ngModel)]="data.markaID" placeholder="Marka" name="markaID" [compareWith]="compareTo" [disabled]="flag == 3">
+          <mat-option *ngFor="let markaID of marke" [value]="markaID.markaID">
+            {{ markaID.nazivMarke }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field>
+        <mat-select [(ngModel)]="data.tipAutomobilaID" placeholder="Tip" name="tipAutomobilaID" [compareWith]="compareTo" [disabled]="flag == 3">
+          <mat-option *ngFor="let tipAutomobilaID of tipovi" [value]="tipAutomobilaID.tipAutomobilaID">
+            {{ tipAutomobilaID.nazivTipaAutomobila }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field>
+        <mat-select [(ngModel)]="data.servisID" placeholder="Servis" name="servisID" [compareWith]="compareTo" [disabled]="flag == 3">
+          <mat-option *ngFor="let servisID of servisi" [value]="servisID.servisID">
+            {{ servisID.opis }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+      <button mat-button *ngIf="flag == 1" type="submit" [mat-dialog-close]="1" (click)="add()" [disabled]="!formControl.valid">Sačuvaj</button>
+      <button mat-button *ngIf="flag == 2" type="submit" [mat-dialog-close]="1" (click)="update()" [disabled]="!formControl.valid">Sačuvaj</button>
+      <button mat-button *ngIf="flag == 3" type="submit" [mat-dialog-close]="1" (click)="delete()">Obriši</button>
+      <button mat-button (click)="cancel()">Poništi</button>
+    </div>
+  </form>
+</div>

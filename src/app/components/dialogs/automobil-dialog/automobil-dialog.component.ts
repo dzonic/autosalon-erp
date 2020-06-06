@@ -4,8 +4,8 @@ import { MatSnackBar, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { AutomobilService } from '../../../services/automobil.services';
 import { ServisService } from '../../../services/servis.services';
 import { Servis } from '../../../models/servis';
-import { Model } from '../../../models/model';
-import { ModelService } from '../../../services/model.services';
+import { Marka } from '../../../models/marka';
+import { MarkaService } from '../../../services/marka.services';
 import { TipAutomobila } from '../../../models/tip_automobila';
 import { TipAutomobilaService } from '../../../services/tipautomobila.services';
 
@@ -16,7 +16,7 @@ import { TipAutomobilaService } from '../../../services/tipautomobila.services';
 })
 export class AutomobilDialogComponent implements OnInit {
 
-  modeli: Model[];
+  marke: Marka[];
   servisi: Servis[];
   tipovi: TipAutomobila[];
   flag: number;
@@ -26,13 +26,13 @@ export class AutomobilDialogComponent implements OnInit {
               @Inject(MAT_DIALOG_DATA) public data: Automobil,
               public automobilService: AutomobilService,
               public servisService: ServisService,
-              public modelService: ModelService,
+              public markaService: MarkaService,
               public tipAutomobilaService: TipAutomobilaService
   ) { }
 
   ngOnInit() {
-    this.modelService.getAllModel().subscribe(modeli =>
-     this.modeli = modeli
+    this.markaService.getAllMarka().subscribe(marke =>
+     this.marke = marke
     );
     this.servisService.getAllServis().subscribe(servisi =>
       this.servisi = servisi
