@@ -6,7 +6,7 @@
  .mat-form-field {
   font-size: 14px;
   flex-grow: 1;
-  margin-top: 8px;
+  margin-top: 5px;
  }
 
  /* Mat table */
@@ -20,12 +20,12 @@
 
  .mat-cell:nth-child(1),
  .mat-header-cell:nth-child(1){
-  flex: 0 0 5%;
+  flex: 0 0 4%;
  }
 
  .mat-cell:nth-child(2),
  .mat-header-cell:nth-child(2){
-  flex: 0 0 40%;
+  flex: 0 0 13%;
  }
 
  .mat-cell:nth-child(3),

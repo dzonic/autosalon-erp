@@ -42,17 +42,17 @@
 
     <ng-container matColumnDef="markaID">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Marka ID</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.markaID}</mat-cell>
+      <mat-cell *matCellDef="let row"> {{row.markaID}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="tipAutomobilaID">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Tip auta ID</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.tipAutomobilaID}</mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Tip automobila ID</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.tipAutomobilaID}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="servisID">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Servis ID</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.servisID}</mat-cell>
+      <mat-cell *matCellDef="let row"> {{row.servisID}}</mat-cell>
     </ng-container>
 
     <!-- actions -->
@@ -64,11 +64,11 @@
       </mat-header-cell>
 
       <mat-cell *matCellDef="let row; let i=index;">
-        <button mat-icon-button color="primary" (click)="openDialog(2,row.automobilID, row.kubikaza, row.brojSasije row.konjskaSnaga,
+        <button mat-icon-button color="primary" (click)="openDialog(2,row.automobilID, row.kubikaza, row.brojSasije, row.konjskaSnaga,
         row.bojaAutomobila, row.godinaProizvodnje, row.markaID, row.tipAutomobilaID, row.servisID)">
           <mat-icon aria-label="Edit">edit</mat-icon>
         </button>
-        <button mat-icon-button color="primary" (click)="openDialog(3,row.automobilID, row.kubikaza, row.brojSasije row.konjskaSnaga,
+        <button mat-icon-button color="primary" (click)="openDialog(3,row.automobilID, row.kubikaza, row.brojSasije, row.konjskaSnaga,
         row.bojaAutomobila, row.godinaProizvodnje, row.markaID, row.tipAutomobilaID, row.servisID)">
           <mat-icon aria-label="Delete">delete</mat-icon>
         </button>
