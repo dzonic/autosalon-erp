@@ -19,15 +19,12 @@ export class LoginComponent implements OnInit {
       password: new FormControl('', [Validators.required])
     });
   }
+
   loginProces() {
     if (this.formGroup.valid) {
-      this.authService.login(this.formGroup.value).subscribe(result => {
-        if (result.success) {
+      this.authService.logIn(this.formGroup.value.email, this.formGroup.value.password).subscribe(result => {
           console.log(result);
-          alert(result.message);
-        } else {
-          alert(result.message);
-        }
+          alert('Uspešno ulogovani');
       });
     }
   }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
@@ -9,7 +9,16 @@ import { Observable } from 'rxjs';
 export class AuthService {
 
   constructor(private http: HttpClient) {}
-    login(data): Observable<any> {
-      return this.http.get(`http://localhost:8081/api/login`, data);
+
+  logIn(email, password): any {
+    const headers = new HttpHeaders();
+    headers.set('Content-Type', 'application/json' );
+    headers.set('KlijentID', email);
+    headers.set('KlijentLozinka', password);
+    return this.http.get('http://localhost:8081/api/login', { headers: {KlijentID : email, KlijentLozinka : password} });
     }
+
   }
+
+
+
