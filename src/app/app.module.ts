@@ -69,7 +69,9 @@ import { AutomobilDialogComponent } from './components/dialogs/automobil-dialog/
 import { KupoprodajniUgovorComponent } from './components/kupoprodajniugovor/kupoprodajniugovor.component';
 import { KupoprodajniUgovorDialogComponent } from './components/dialogs/kupoprodajniugovor-dialog/kupoprodajniugovor-dialog.component';
 import { KupoprodajniUgovorService } from './services/kupoprodajniugovor.services';
-
+import { DodatniZahtevComponent } from './components/dodatnizahtev/dodatnizahtev.component';
+import {DodatniZahtevDialogComponent } from './components/dialogs/dodatnizahtev-dialog/dodatnizahtev-dialog.component';
+import { DodatniZahtevService } from './services/dodatnizahtev.services';
 
 
 
@@ -91,6 +93,7 @@ const Routes = [
   {path: 'prodavac', component: ProdavacComponent},
   {path: 'kupoprodajniugovor', component: KupoprodajniUgovorComponent},
   {path: 'polisaosiguranja', component: PoliseOsiguranjaComponent},
+  {path: 'dodatnizahtev', component: DodatniZahtevComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 ];
 
@@ -122,7 +125,9 @@ const Routes = [
     AutomobilComponent,
     AutomobilDialogComponent,
     KupoprodajniUgovorComponent,
-    KupoprodajniUgovorDialogComponent
+    KupoprodajniUgovorDialogComponent,
+    DodatniZahtevComponent,
+    DodatniZahtevDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -158,11 +163,11 @@ const Routes = [
   entryComponents: [
      ServisDialogComponent, ModelDialogComponent, TipAutomobilaDialogComponent, OsiguravajucaKucaDialogComponent,
      MarkaDialogComponent, PoliseOsiguranjaDialogComponent, KorisnikDialogComponent, KupacDialogComponent,
-     ProdavacDialogComponent, AutomobilDialogComponent, KupoprodajniUgovorDialogComponent
+     ProdavacDialogComponent, AutomobilDialogComponent, KupoprodajniUgovorDialogComponent, DodatniZahtevDialogComponent
   ],
   providers: [ServisService, ModelService, TipAutomobilaService, OsiguravajucaKucaService,
   MarkaService, PoliseOsiguranjaService, KorisnikService,
-  KupacService, ProdavacService, AutomobilService, KupoprodajniUgovorService],
+  KupacService, ProdavacService, AutomobilService, KupoprodajniUgovorService, DodatniZahtevService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -17,15 +17,15 @@
 
     <ng-container matColumnDef="opisZahteva">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Opis zahteva</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.opisZahteva}</mat-cell>
+      <mat-cell *matCellDef="let row"> {{row.opisZahteva}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="datumPodnosenja">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Datum podnošenja</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.datumPodnosenja}</mat-cell>
+      <mat-cell *matCellDef="let row"> {{row.datumPodnosenja | date: 'yyyy-MM-dd'}}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="kupoprodajniugovor">
+    <ng-container matColumnDef="kupoprodajniUgovorID">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Kupoprodajni ugovor ID</mat-header-cell>
       <mat-cell *matCellDef="let row"> {{row.kupoprodajniUgovorID}} </mat-cell>
     </ng-container>
@@ -42,7 +42,7 @@
         <button mat-icon-button color="primary" (click)="openDialog(2,row.dodatniZahtevID, row.opisZahteva, row.datumPodnosenja, row.kupoprodajniUgovorID)">
           <mat-icon aria-label="Edit">edit</mat-icon>
         </button>
-        <button mat-icon-button color="primary" (click)="openDialog(3,,row.dodatniZahtevID, row.opisZahteva, row.datumPodnosenja, row.kupoprodajniUgovorID">
+        <button mat-icon-button color="primary" (click)="openDialog(3,row.dodatniZahtevID, row.opisZahteva, row.datumPodnosenja, row.kupoprodajniUgovorID)">
           <mat-icon aria-label="Delete">delete</mat-icon>
         </button>
       </mat-cell>
