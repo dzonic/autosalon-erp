@@ -24,7 +24,10 @@ export class LoginComponent implements OnInit {
     if (this.formGroup.valid) {
       this.authService.logIn(this.formGroup.value.email, this.formGroup.value.password).subscribe(result => {
           console.log(result);
-          alert('Uspešno ulogovani');
+          alert('Uspešno ste se ulogovali');
+          if (result.success) {
+            alert('Pogrešan unos podataka');
+          }
       });
     }
   }

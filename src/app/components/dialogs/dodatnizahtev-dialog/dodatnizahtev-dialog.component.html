@@ -1,7 +1,7 @@
 <div class="container">
   <h3 mat-dialog-title *ngIf="flag == 1">Dodaj dodatni zahtev</h3>
   <h3 mat-dialog-title *ngIf="flag == 2">Modifikuj dodatni zahtev: {{data.opisZahteva}}</h3>
-  <h3 mat-dialog-title *ngIf="flag == 3">Obriši tim: {{data.opisZahteva}}</h3>
+  <h3 mat-dialog-title *ngIf="flag == 3">Obriši zahtev: {{data.opisZahteva}}</h3>
   <form class="mat-dialog-content" ngSubmit='submit' #formControl="ngForm">
     <div class="form">
       <mat-form-field>
@@ -18,8 +18,8 @@
     <div class="form">
       <mat-form-field>
         <mat-select [(ngModel)]="data.kupoprodajniUgovor" placeholder="Kupoprodajni ugovor" name="kupoprodajniUgovorID" [compareWith]="compareTo" [disabled]="flag == 3" required>
-          <mat-option *ngFor="let kupoprodajniUgovorID of kupoprodajniUgovori" [value]="kupoprodajniUgovorID">
-            {{ kupoprodajniUgovorID.kupoprodajniUgovorID }}
+          <mat-option *ngFor="let kupoprodajniUgovorID of kupoprodajniUgovori" [value]="kupoprodajniUgovorID.kupoprodajniUgovorID">
+            {{ kupoprodajniUgovorID.opisZahteva}}
           </mat-option>
         </mat-select>
       </mat-form-field>
