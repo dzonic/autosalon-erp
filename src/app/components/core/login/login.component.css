@@ -1,10 +1,19 @@
-.mat-form-field {
-  font-size: 14px;
-  flex-grow: 1;
-  margin-top: 60px;
-  align-content: space-around;
- }
+.main-div {
+  display: flex;
+  flex-direction: column;
+  min-width: 550px;
+}
 
  .form {
-  display: flex;
+   display: flex;
  }
+
+ .mat-form-field {
+  font-size: 16px;
+  flex-grow: 1;
+  margin-top: 50px;
+  padding-left: 3%;
+ }
+
+
+

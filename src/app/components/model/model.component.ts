@@ -19,7 +19,6 @@ import { error } from 'util';
 })
 export class ModelComponent implements OnInit {
   displayedColumns = ['modelID', 'nazivModela', 'actions'];
-  // dataSource: Observable<Liga[]>;
   dataSource: MatTableDataSource<Model>;
   @ViewChild(MatSort, { static: true })
   sort: MatSort;

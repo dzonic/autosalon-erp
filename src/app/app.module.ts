@@ -32,9 +32,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/core/home/home.component';
 import { AboutComponent } from './components/core/about/about.component';
-
 import { LoginComponent } from './components/core/login/login.component';
-
 import { AuthorComponent } from './components/core/author/author.component';
 import { ServisComponent } from './components/servis/servis.component';
 import { ServisService } from './services/servis.services';
@@ -78,9 +76,7 @@ import { DodatniZahtevService } from './services/dodatnizahtev.services';
 const Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'about', component: AboutComponent},
-
   {path: 'login', component: LoginComponent},
-
   {path: 'automobil', component: AutomobilComponent},
   {path: 'author', component: AuthorComponent},
   {path: 'servis', component: ServisComponent},

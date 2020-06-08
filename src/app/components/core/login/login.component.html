@@ -1,6 +1,6 @@
 <div fixLayoutAlign="center center" fxFlexFill class="main-div">
   <mat-card fxFlex="25">
-    <mat-toolbar color="primary">Dobrodošli u aplikaciju. Logovanje </mat-toolbar>
+    <mat-toolbar color="primary">Logovanje </mat-toolbar>
     <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="formGroup"
     (ngSubmit)="loginProces()">
      <mat-form-field>
@@ -11,8 +11,11 @@
       <input matInput type="password" placeholder="Unesite lozinku" formControlName="password">
     </mat-form-field>
 
-
-    <button mat-raised-button type="submit" class="mt-15" color="primary">Login</button>
     </form>
+
+    <button mat-raised-button  type="submit" class="mt-15" color="primary" style="position: relative; left: 19%;" >Uloguj se</button>
+
   </mat-card>
+
 </div>
+
