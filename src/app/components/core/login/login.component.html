@@ -13,7 +13,10 @@
 
     </form>
 
+    <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="formGroup"
+    (ngSubmit)="loginProces()">
     <button mat-raised-button  type="submit" class="mt-15" color="primary" style="position: relative; left: 19%;" >Uloguj se</button>
+  </form>
 
   </mat-card>
 
