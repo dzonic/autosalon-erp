@@ -1,7 +1,7 @@
 <div class="container">
   <h3 mat-dialog-title *ngIf="flag == 1">Dodaj automobil</h3>
   <h3 mat-dialog-title *ngIf="flag == 2">Modifikuj automobil: {{data.automobilID}}</h3>
-  <h3 mat-dialog-title *ngIf="flag == 3">Obriši automobil: {{data.automobilID}</h3>
+  <h3 mat-dialog-title *ngIf="flag == 3">Obriši automobil: {{data.automobilID}}</h3>
   <form class="mat-dialog-content" ngSubmit='submit' #formControl="ngForm">
     <div class="form">
       <mat-form-field>

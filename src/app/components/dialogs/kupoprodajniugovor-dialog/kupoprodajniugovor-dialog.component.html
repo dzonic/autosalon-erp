@@ -1,7 +1,7 @@
 <div class="container">
   <h3 mat-dialog-title *ngIf="flag == 1">Dodaj ugovor</h3>
   <h3 mat-dialog-title *ngIf="flag == 2">Modifikuj ugovor: {{data.kupoprodajniUgovorID}}</h3>
-  <h3 mat-dialog-title *ngIf="flag == 3">Obriši ugovor: {{data.kupoprodajniUgovorID}</h3>
+  <h3 mat-dialog-title *ngIf="flag == 3">Obriši ugovor: {{data.kupoprodajniUgovorID}}</h3>
   <form class="mat-dialog-content" ngSubmit='submit' #formControl="ngForm">
     <div class="form">
       <mat-form-field>
