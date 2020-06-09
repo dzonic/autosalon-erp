@@ -9,7 +9,7 @@ import {
   MatSort
 } from '@angular/material';
 import { KorisnikDialogComponent } from '../dialogs/korisnik-dialog/korisnik-dialog.component';
-import { error } from 'util';
+
 
 @Component({
   selector: 'app-korisnik',
@@ -18,7 +18,6 @@ import { error } from 'util';
 })
 export class KorisnikComponent implements OnInit {
   displayedColumns = ['korisnikID', 'email', 'password', 'uloga', 'actions'];
-  // dataSource: Observable<Liga[]>;
   dataSource: MatTableDataSource<Korisnik>;
   @ViewChild(MatSort, { static: true })
   sort: MatSort;

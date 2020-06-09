@@ -52,7 +52,7 @@ export class DodatniZahtevDialogComponent implements OnInit {
 
   public delete(): void {
     this.dodatniZahtevService.deleteDodatniZahtev(this.data.dodatniZahtevID);
-    this.snackBar.open('Uspešno obrisan kupac: ' + this.data.dodatniZahtevID, 'U redu', {
+    this.snackBar.open('Uspešno obrisan zahtev: ' + this.data.dodatniZahtevID, 'U redu', {
       duration: 2500,
       });
   }

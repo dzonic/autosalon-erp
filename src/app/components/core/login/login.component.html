@@ -6,19 +6,14 @@
      <mat-form-field>
        <input matInput placeholder="Unesite korisničko ime" formControlName="email">
      </mat-form-field>
-
      <mat-form-field>
       <input matInput type="password" placeholder="Unesite lozinku" formControlName="password">
     </mat-form-field>
-
     </form>
-
     <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="formGroup"
     (ngSubmit)="loginProces()">
     <button mat-raised-button  type="submit" class="mt-15" color="primary" style="position: relative; left: 19%;" >Uloguj se</button>
   </form>
-
   </mat-card>
-
 </div>
 
